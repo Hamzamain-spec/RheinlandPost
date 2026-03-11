@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RheinlandPost — Nachrichten vom Rhein</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,700&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#1B6B3A;--dark-green:#124D2A;--light-green:#E8F5EE;--white:#fff;--offwhite:#F8FAF9;--dark:#141E1A;--mid:#4A6358;--border:#C8DDD3;--gold:#B8960A;--rust:#8B3A1A}
+body{font-family:'Fira Sans',sans-serif;background:var(--offwhite);color:var(--dark)}
+
+/* HEADER */
+header{background:var(--white);border-bottom:3px solid var(--green)}
+.top-bar{background:var(--dark-green);padding:7px 32px;display:flex;justify-content:space-between;align-items:center}
+.top-bar-text{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.5px}
+.top-bar-text strong{color:#fff}
+.top-bar a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:11px}
+.top-bar a:hover{color:var(--gold)}
+.header-main{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;display:flex;flex-direction:column}
+.logo-top{display:flex;align-items:baseline;gap:0}
+.logo-rhein{font-family:'Merriweather',serif;font-size:38px;font-weight:900;color:var(--green);letter-spacing:-1px}
+.logo-land{font-family:'Merriweather',serif;font-size:38px;font-weight:900;color:var(--dark);letter-spacing:-1px}
+.logo-post{font-family:'Merriweather',serif;font-size:38px;font-weight:900;color:var(--gold);letter-spacing:-1px}
+.logo-sub{font-size:11px;color:var(--mid);letter-spacing:3px;text-transform:uppercase;font-weight:500;margin-top:2px;padding-left:2px}
+.header-wave{display:flex;align-items:center;gap:4px;opacity:0.3}
+.header-wave span{display:block;width:3px;border-radius:2px;background:var(--green);animation:wave 1.2s ease-in-out infinite}
+.header-wave span:nth-child(1){height:12px;animation-delay:0s}
+.header-wave span:nth-child(2){height:20px;animation-delay:0.1s}
+.header-wave span:nth-child(3){height:28px;animation-delay:0.2s}
+.header-wave span:nth-child(4){height:20px;animation-delay:0.3s}
+.header-wave span:nth-child(5){height:12px;animation-delay:0.4s}
+@keyframes wave{0%,100%{transform:scaleY(0.6)}50%{transform:scaleY(1)}}
+
+/* NAV */
+nav{background:var(--green)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex}
+nav a{display:block;padding:12px 18px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all 0.2s;border-bottom:3px solid transparent}
+nav a:hover{color:#fff;background:rgba(255,255,255,0.08);border-bottom-color:var(--gold)}
+
+/* HERO */
+.hero{background:linear-gradient(170deg,var(--dark-green) 0%,var(--green) 60%,#2A8A52 100%);padding:80px 32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z' fill='%23F8FAF9'/%3E%3C/svg%3E") no-repeat bottom;background-size:cover}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding-bottom:60px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px}
+.hero-tag-icon{width:28px;height:3px;background:var(--gold)}
+.hero-tag-text{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:600}
+.hero h1{font-family:'Merriweather',serif;font-size:52px;color:#fff;line-height:1.1;margin-bottom:20px;font-weight:900}
+.hero h1 em{color:var(--gold);font-style:italic;display:block}
+.hero p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;font-weight:300;margin-bottom:32px}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--dark);padding:14px 28px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;transition:all 0.2s;border-radius:2px}
+.hero-btn:hover{background:#fff}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-stat{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);padding:22px;border-radius:4px;border-left:3px solid var(--gold)}
+.hero-stat-num{font-family:'Merriweather',serif;font-size:32px;font-weight:900;color:#fff;margin-bottom:4px}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+
+/* SECTION */
+.section{max-width:1200px;margin:56px auto;padding:0 32px}
+.section-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.section-head-icon{width:8px;height:32px;background:linear-gradient(to bottom,var(--green),var(--gold));border-radius:4px}
+.section-head-title{font-family:'Merriweather',serif;font-size:24px;font-weight:700;color:var(--dark);letter-spacing:-0.3px}
+.see-all{margin-left:auto;font-size:12px;font-weight:600;color:var(--green);text-decoration:none;letter-spacing:0.5px}
+.see-all:hover{color:var(--gold)}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:pointer;transition:all 0.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(27,107,58,0.12);border-color:var(--green)}
+.card-img{height:190px;position:relative;overflow:hidden}
+.card-img-bg{width:100%;height:100%;transition:transform 0.5s}
+.card:hover .card-img-bg{transform:scale(1.06)}
+.card-cat{position:absolute;top:12px;left:12px;background:var(--green);color:#fff;font-size:9px;font-weight:600;letter-spacing:2px;padding:4px 10px;text-transform:uppercase;border-radius:2px}
+.card-body{padding:22px}
+.card-meta{font-size:11px;color:#aaa;font-weight:500;margin-bottom:9px}
+.card-title{font-family:'Merriweather',serif;font-size:18px;font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:10px}
+.card-excerpt{font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:16px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border)}
+.card-link{font-size:12px;font-weight:600;color:var(--green);text-decoration:none;letter-spacing:0.5px}
+.card-link:hover{color:var(--gold)}
+.card-tag{font-size:10px;color:var(--green);background:var(--light-green);padding:3px 8px;border-radius:100px;font-weight:600}
+
+.g1{background:linear-gradient(135deg,#1B6B3A,#2A8A52)}
+.g2{background:linear-gradient(135deg,#B8960A,#D4AF22)}
+.g3{background:linear-gradient(135deg,#8B3A1A,#B44E26)}
+.g4{background:linear-gradient(135deg,#1A3B6B,#2A5A9E)}
+.g5{background:linear-gradient(135deg,#124D2A,#1B6B3A)}
+.g6{background:linear-gradient(135deg,#3A1A6B,#5A2A9E)}
+.empty{text-align:center;padding:80px;color:var(--mid);grid-column:1/-1}
+.empty h3{font-family:'Merriweather',serif;font-size:26px;color:var(--dark);margin-bottom:8px}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.4);margin-top:0}
+.footer-wave{background:var(--dark);height:40px;margin-top:-1px}
+.footer-inner{max-width:1200px;margin:0 auto;padding:48px 32px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+.footer-logo{font-family:'Merriweather',serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:12px}
+.footer-logo span{color:var(--gold)}
+.footer-inner p{font-size:13px;line-height:1.7;font-weight:300}
+.footer-col h4{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.footer-col a{display:block;color:rgba(255,255,255,0.4);text-decoration:none;font-size:13px;margin-bottom:8px}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);text-align:center;padding:18px;font-size:12px;max-width:1200px;margin:0 auto}
+.footer-bottom a{color:rgba(255,255,255,0.35);text-decoration:none;margin:0 8px}
+.footer-bottom a:hover{color:var(--green)}
+.admin-link{position:fixed;bottom:20px;right:20px;background:var(--green);color:#fff;padding:10px 18px;font-size:12px;text-decoration:none;opacity:0.4;transition:opacity 0.2s;font-weight:700;border-radius:4px}
+.admin-link:hover{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div class="top-bar">
+    <span class="top-bar-text">🌊 <strong>RheinlandPost</strong> — Nachrichten vom Rhein</span>
+    <span class="top-bar-text">Mi, 12. März 2026 &nbsp;·&nbsp; <a href="#">Anmelden</a></span>
+  </div>
+  <div class="header-main">
+    <a href="index.html" class="logo">
+      <div class="logo-top"><span class="logo-rhein">Rhein</span><span class="logo-land">land</span><span class="logo-post">Post</span></div>
+      <div class="logo-sub">Nachrichten vom Rhein</div>
+    </a>
+    <div class="header-wave"><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+</header>
+<nav><div class="nav-inner">
+  <a href="index.html">Home</a>
+  <a href="index.html">Rheinland</a>
+  <a href="index.html">NRW</a>
+  <a href="index.html">Wirtschaft</a>
+  <a href="index.html">Kultur</a>
+  <a href="index.html">Ratgeber</a>
+  <a href="index.html">Reisen</a>
+</div></nav>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag"><div class="hero-tag-icon"></div><div class="hero-tag-text">Regionaler Qualitätsjournalismus</div></div>
+      <h1>Nachrichten<em>vom Rhein</em></h1>
+      <p>Aktuelle Berichte, Analysen und Ratgeber aus dem Rheinland — für die Menschen zwischen Köln, Düsseldorf und Bonn.</p>
+      <a href="#articles" class="hero-btn">Alle Artikel lesen</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">NRW</div><div class="hero-stat-label">Nordrhein-Westfalen</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">24/7</div><div class="hero-stat-label">Täglich aktuell</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">🌊</div><div class="hero-stat-label">Rheinland</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Kostenlos</div></div>
+    </div>
+  </div>
+</div>
+<div class="section" id="articles">
+  <div class="section-head"><div class="section-head-icon"></div><div class="section-head-title">Aktuelle Beiträge</div><a href="index.html" class="see-all">Alle anzeigen →</a></div>
+  <div class="grid" id="posts-grid"><div class="empty"><h3>Noch keine Artikel</h3><p>Inhalte erscheinen bald.</p></div></div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-logo">Rheinland<span>Post</span></div><p>RheinlandPost berichtet über Neuigkeiten, Kultur und Wirtschaft im Rheinland. Täglich aktuell.</p></div>
+    <div class="footer-col"><h4>Themen</h4><a href="#">Rheinland</a><a href="#">NRW</a><a href="#">Wirtschaft</a><a href="#">Kultur</a></div>
+    <div class="footer-col"><h4>Info</h4><a href="#">Über uns</a><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 RheinlandPost &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></div>
+</footer>
+<a href="admin.html" class="admin-link">⚙ Admin</a>
+<script>
+const gs=['g1','g2','g3','g4','g5','g6'];
+function loadPosts(){
+  const posts=JSON.parse(localStorage.getItem('db_posts')||'[]');
+  const grid=document.getElementById('posts-grid');
+  if(!posts.length)return;
+  grid.innerHTML='';
+  posts.slice().reverse().forEach((p,i)=>{
+    const g=gs[i%gs.length];
+    const date=new Date(p.date).toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'});
+    const excerpt=p.content.replace(/<[^>]+>/g,'').substring(0,110)+'...';
+    grid.innerHTML+=`<div class="card" onclick="location.href='post.html?id=${p.id}'">
+      <div class="card-img"><div class="card-img-bg ${g}"></div><span class="card-cat">${p.category||'Rheinland'}</span></div>
+      <div class="card-body">
+        <div class="card-meta">📅 ${date} &nbsp;·&nbsp; ✍ ${p.author||'Redaktion'}</div>
+        <div class="card-title">${p.title}</div>
+        <div class="card-excerpt">${excerpt}</div>
+        <div class="card-footer"><a class="card-link" href="post.html?id=${p.id}">Weiterlesen →</a><span class="card-tag">${p.category||'Rheinland'}</span></div>
+      </div></div>`;
+  });
+}
+loadPosts();
+</script>
+</body>
+</html>
